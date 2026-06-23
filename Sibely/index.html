@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cronograma — Sibely | Tharcy Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d0d0d;
+      color: #f0ece4;
+      font-family: 'Jost', sans-serif;
+      min-height: 100vh;
+      padding: 48px 20px;
+    }
+
+    .container { max-width: 920px; margin: 0 auto; }
+
+    /* HEADER */
+    .brand {
+      text-align: center;
+      letter-spacing: .3em;
+      font-size: 11px;
+      font-weight: 500;
+      color: #e8a0bf;
+      margin-bottom: 16px;
+    }
+    .line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,.4), rgba(232,160,191,.4), rgba(176,142,224,.4), transparent);
+      max-width: 400px;
+      margin: 16px auto;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 6vw, 50px);
+      font-weight: 600;
+      text-align: center;
+      color: #f0ece4;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      text-align: center;
+      font-weight: 300;
+      font-size: 15px;
+      color: #a09880;
+      letter-spacing: .05em;
+      margin-bottom: 4px;
+    }
+    .tag {
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: .25em;
+      color: #a09880;
+      font-weight: 500;
+      margin-top: 8px;
+      margin-bottom: 48px;
+    }
+
+    /* GRID DIAS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform .2s;
+    }
+    .card:hover { transform: translateY(-2px); }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+    .card-top-left { display: flex; align-items: baseline; gap: 8px; }
+    .date-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .weekday { font-size: 12px; color: #a09880; font-weight: 300; letter-spacing: .05em; }
+    .dia-label { font-size: 10px; font-weight: 500; letter-spacing: .2em; }
+
+    .course-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #f0ece4;
+      margin-bottom: 6px;
+    }
+    .schedule-bar {
+      font-size: 11px;
+      color: #a09880;
+      letter-spacing: .04em;
+      margin-bottom: 6px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .blocks { display: flex; flex-direction: column; gap: 12px; }
+    .block { padding-left: 12px; border-left: 2px solid rgba(255,255,255,.1); }
+    .block-period { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+    .block-icon { font-size: 13px; }
+    .period-text { font-size: 10px; letter-spacing: .15em; color: #a09880; font-weight: 500; }
+    .block-desc { font-size: 14px; color: #f0ece4; margin-bottom: 2px; }
+    .block-detail { font-size: 11px; color: #7a7060; font-style: italic; line-height: 1.5; }
+
+    /* BOTÃO */
+    .btn-confirm {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #c9a84c, #e8a0bf);
+      border: none;
+      border-radius: 50px;
+      padding: 16px 36px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      color: #0d0d0d;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-confirm:hover { opacity: .9; transform: scale(1.02); }
+
+    /* FOOTER */
+    .footer { text-align: center; }
+    .footer-text { font-size: 13px; color: #7a7060; font-weight: 300; margin-top: 8px; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="brand">THARCY BEAUTY</div>
+  <div class="line"></div>
+  <h1>Cronograma de Curso</h1>
+  <p class="subtitle">Sibely · Junho & Julho 2026</p>
+  <div class="line"></div>
+  <p class="tag">TÉCNICAS GRINGAS</p>
+
+  <!-- DIAS -->
+  <div class="grid">
+
+    <!-- DIA 01 -->
+    <div class="card" style="border-top: 3px solid #c9a84c;">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="date-num" style="color:#c9a84c;">25</span>
+          <span class="weekday">Quarta-feira</span>
+        </div>
+        <span class="dia-label" style="color:#c9a84c;">DIA 01</span>
+      </div>
+      <p class="course-name">Técnicas Gringas</p>
+      <p class="schedule-bar">🕗 08:30 – 12:00 · Almoço · 14:00 – 18:00</p>
+      <div class="blocks">
+        <div class="block">
+          <div class="block-period">
+            <span class="block-icon">🌅</span>
+            <span class="period-text">08:30 – 12:00</span>
+          </div>
+          <p class="block-desc">Aula Teórica</p>
+        </div>
+        <div class="block">
+          <div class="block-period">
+            <span class="block-icon">✏️</span>
+            <span class="period-text">14:00 – 18:00</span>
+          </div>
+          <p class="block-desc">Aula Prática</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIA 02 -->
+    <div class="card" style="border-top: 3px solid #b08ee0;">
+      <div class="card-top">
+        <div class="card-top-left">
+          <span class="date-num" style="color:#b08ee0;">05</span>
+          <span class="weekday">Sábado</span>
+        </div>
+        <span class="dia-label" style="color:#b08ee0;">DIA 02</span>
+      </div>
+      <p class="course-name">Técnicas Gringas</p>
+      <p class="schedule-bar">🕗 08:30 – 12:00 · Almoço · 14:00 – 18:00</p>
+      <div class="blocks">
+        <div class="block">
+          <div class="block-period">
+            <span class="block-icon">👁️</span>
+            <span class="period-text">08:30 – 12:00</span>
+          </div>
+          <p class="block-desc">Prática Intensiva em Modelo Real</p>
+        </div>
+        <div class="block">
+          <div class="block-period">
+            <span class="block-icon">👁️</span>
+            <span class="period-text">14:00 – 18:00</span>
+          </div>
+          <p class="block-desc">Continuação da Prática</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTÃO CONFIRMAR -->
+  <div style="text-align:center; margin-bottom: 48px;">
+    <a class="btn-confirm" href="#" target="_blank">
+      ✅ Confirmar presença pelo WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="line"></div>
+    <p class="footer-text">Qualquer dúvida, entre em contato diretamente com a Tharcy 🤍</p>
+  </div>
+
+</div>
+
+<script>
+  document.querySelector('.btn-confirm').href =
+    'https://wa.me/5566992227689?text=' +
+    encodeURIComponent('✅ Olá Tharcy! Confirmo minha presença no curso Técnicas Gringas nos dias 25/06 e 05/07/2026. 🤍');
+</script>
+</body>
+</html>
