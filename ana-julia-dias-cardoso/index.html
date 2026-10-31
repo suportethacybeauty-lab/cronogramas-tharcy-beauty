@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cronograma – Ana Julia Dias Cardoso</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Allura&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rosa:    #fff0f8;
+      --rosa-card: #fff7fd;
+      --chiclete: #f6c3e1;
+      --lilas:   #c599c5;
+      --roxo:    #750096;
+      --ameixa:  #3d2454;
+      --escuro:  #29143c;
+      --preto:   #000;
+      --branco:  #fff;
+      --verde:   #5DCAA5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--rosa);
+      font-family: 'Figtree', sans-serif;
+      color: var(--escuro);
+      min-height: 100vh;
+      padding: 2rem 1rem 3rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .hero .script {
+      font-family: 'Allura', cursive;
+      font-size: 2.4rem;
+      color: var(--roxo);
+      line-height: 1.1;
+      margin-bottom: .2rem;
+    }
+    .hero h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 7vw, 3.2rem);
+      letter-spacing: .04em;
+      color: var(--escuro);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .hero .aluna-nome {
+      font-family: 'Figtree', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ameixa);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .hero .divisor {
+      width: 60px;
+      height: 3px;
+      background: var(--chiclete);
+      border-radius: 99px;
+      margin: .8rem auto 0;
+    }
+
+    /* ── CARDS ── */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+
+    .card {
+      background: var(--rosa-card);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(117,0,150,.08);
+      border: 1.5px solid var(--chiclete);
+    }
+
+    .card-top {
+      padding: .7rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+    }
+    .card-top.chiclete { background: var(--chiclete); }
+    .card-top.lilas    { background: var(--lilas);    }
+    .card-top.roxo     { background: var(--roxo);      }
+    .card-top.verde    { background: var(--verde);     }
+
+    .card-top .dia-label {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: .08em;
+      color: var(--escuro);
+      text-transform: uppercase;
+    }
+    .card-top.roxo .dia-label { color: var(--branco); }
+    .card-top.verde .dia-label { color: var(--branco); }
+
+    .card-top .dia-data {
+      font-family: 'Figtree', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--ameixa);
+      margin-left: auto;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .card-top.roxo .dia-data  { color: rgba(255,255,255,.85); }
+    .card-top.verde .dia-data { color: rgba(255,255,255,.85); }
+
+    .card-body { padding: 1rem 1.2rem 1.2rem; }
+
+    .horario-badge {
+      display: inline-block;
+      background: var(--chiclete);
+      color: var(--escuro);
+      font-family: 'Figtree', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: .25rem .75rem;
+      border-radius: 99px;
+      margin-bottom: .85rem;
+    }
+    .card-top.roxo ~ .card-body .horario-badge,
+    .bonus-badge {
+      background: var(--verde);
+      color: var(--branco);
+    }
+
+    .modulos { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+    .modulos li {
+      display: flex;
+      align-items: flex-start;
+      gap: .55rem;
+      font-size: .93rem;
+      font-weight: 400;
+      color: var(--escuro);
+      line-height: 1.4;
+    }
+    .modulos li .bullet {
+      width: 7px; height: 7px;
+      background: var(--chiclete);
+      border-radius: 50%;
+      margin-top: .38rem;
+      flex-shrink: 0;
+      border: 1.5px solid var(--lilas);
+    }
+    .card-top.verde ~ .card-body .modulos li .bullet {
+      background: var(--verde);
+      border-color: var(--verde);
+    }
+
+    .separador {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin: .8rem 0;
+      font-size: .73rem;
+      font-weight: 600;
+      color: var(--lilas);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .separador::before,
+    .separador::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--chiclete);
+    }
+
+    /* ── LOCAL ── */
+    .local-box {
+      max-width: 560px;
+      margin: 0 auto 1.5rem;
+      background: var(--rosa-card);
+      border: 1.5px solid var(--chiclete);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .local-box .pin {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .local-box .local-texto {
+      flex: 1;
+      font-size: .88rem;
+      line-height: 1.4;
+      color: var(--ameixa);
+      font-weight: 500;
+    }
+    .local-box .local-texto strong {
+      display: block;
+      font-size: .72rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--roxo);
+      margin-bottom: .2rem;
+    }
+    .btn-maps {
+      display: inline-block;
+      background: var(--roxo);
+      color: var(--branco);
+      font-family: 'Figtree', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .45rem .9rem;
+      border-radius: 99px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    /* ── WHATSAPP ── */
+    .wpp-wrap {
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .btn-wpp {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: #25d366;
+      color: var(--branco);
+      font-family: 'Figtree', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      padding: .85rem 1.8rem;
+      border-radius: 99px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(37,211,102,.3);
+    }
+    .btn-wpp svg { width: 22px; height: 22px; fill: white; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--lilas);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    footer .script-footer {
+      font-family: 'Allura', cursive;
+      font-size: 1.4rem;
+      color: var(--roxo);
+      display: block;
+      margin-bottom: .2rem;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="script">seu cronograma</div>
+    <h1>Extensão de Cílios<br>Iniciante</h1>
+    <div class="aluna-nome">Ana Julia Dias Cardoso</div>
+    <div class="divisor"></div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards">
+
+    <!-- DIA 01 -->
+    <div class="card">
+      <div class="card-top chiclete">
+        <span class="dia-label">✦ DIA 01</span>
+        <span class="dia-data">Segunda-feira, 23/11/2026</span>
+      </div>
+      <div class="card-body">
+        <span class="horario-badge">08:30 – início</span>
+        <ul class="modulos">
+          <li><span class="bullet"></span>Apresentação, anatomia dos cílios e teoria</li>
+          <li><span class="bullet"></span>Cuidados com os olhos e higiene</li>
+          <li><span class="bullet"></span>Tipos de fio, curvatura e espessura</li>
+          <li><span class="bullet"></span>Cola e tempo de secagem</li>
+          <li><span class="bullet"></span>Preparação do modelo e isolamento dos cílios</li>
+        </ul>
+        <div class="separador">tarde</div>
+        <ul class="modulos">
+          <li><span class="bullet"></span>Técnica Classic – aplicação prática guiada</li>
+          <li><span class="bullet"></span>Postura, ergonomia e organização da mesa</li>
+          <li><span class="bullet"></span>Dúvidas e ajustes individuais</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DIA 02 -->
+    <div class="card">
+      <div class="card-top lilas">
+        <span class="dia-label">✦ DIA 02</span>
+        <span class="dia-data">Terça-feira, 24/11/2026</span>
+      </div>
+      <div class="card-body">
+        <span class="horario-badge">08:30 – início</span>
+        <ul class="modulos">
+          <li><span class="bullet"></span>Revisão e aperfeiçoamento da técnica Classic</li>
+          <li><span class="bullet"></span>Volume Brasileiro – teoria e demonstração</li>
+          <li><span class="bullet"></span>Criação de leques e prática guiada</li>
+          <li><span class="bullet"></span>Acabamento, limpeza e finalização</li>
+        </ul>
+        <div class="separador">tarde</div>
+        <ul class="modulos">
+          <li><span class="bullet"></span>Prática livre com modelo</li>
+          <li><span class="bullet"></span>Precificação, montagem de kit e dicas de mercado</li>
+          <li><span class="bullet"></span>Entrega do certificado 🎓</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BÔNUS -->
+    <div class="card">
+      <div class="card-top verde">
+        <span class="dia-label">🌿 BÔNUS – Dia no Studio</span>
+        <span class="dia-data">A combinar</span>
+      </div>
+      <div class="card-body">
+        <span class="horario-badge bonus-badge">Data a definir no último dia do curso</span>
+        <ul class="modulos">
+          <li><span class="bullet"></span>Um dia completo acompanhando a Tharcy no studio</li>
+          <li><span class="bullet"></span>Vivência real com clientes e atendimentos</li>
+          <li><span class="bullet"></span>Dicas de rotina, relacionamento com cliente e gestão</li>
+          <li><span class="bullet"></span>Suporte prático pós-curso 🤍</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LOCAL -->
+  <div class="local-box">
+    <div class="pin">📍</div>
+    <div class="local-texto">
+      <strong>Local do curso</strong>
+      Rua dos Abacateiros, 357 – Jardim Jacarandás, Sinop/MT
+    </div>
+    <a class="btn-maps" href="https://maps.google.com/?q=Rua+dos+Abacateiros,+357,+Jardim+Jacarand%C3%A1s,+Sinop,+MT" target="_blank">Ver mapa</a>
+  </div>
+
+  <!-- WHATSAPP -->
+  <div class="wpp-wrap">
+    <a class="btn-wpp" href="https://wa.me/5566992227689?text=Ol%C3%A1%2C%20Tharcy%21%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20curso.%20%F0%9F%A4%8D%0A%0ALocaliza%C3%A7%C3%A3o%20confirmada%3A%20Rua%20dos%20Abacateiros%2C%20357%20%E2%80%93%20Jardim%20Jacarand%C3%A1s%2C%20Sinop%2FMT." target="_blank">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Confirmar presença
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="script-footer">Tharcy Beauty</span>
+    @tharcybeauty · Sinop/MT
+  </footer>
+
+</body>
+</html>
